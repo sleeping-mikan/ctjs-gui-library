@@ -34,28 +34,26 @@ index.js - GUIに関する基本的な機能を提供します
 |MikanGUI.appends(objs: Array<MikanObject>) -> undefined|uiに複数のオブジェクトを追加します。|
 |MikanGUI.deleteAll() -> undefined|uiに追加されたオブジェクトを全て削除します。|
 |MikanGUI.getIsShow() -> boolean|uiを表示しているかどうかを返します。|
-
 |MikanButton(x: int / PerStr, y: int / PerStr, dx: int / PerStr, dy: int / PerStr, text: str, onClick: func, style: {color: CFormatstr, bgColor: Renderer.Color}) -> MikanButton|MikanButtonを生成します。このオブジェクトは一般的なGUIライブラリで提供されるようなボタンを生成するためのオブジェクトです|
 |MikanButton.setStyle(style: {color: CFormatstr, bgColor: Renderer.Color}) -> undefined|MikanButtonのスタイルを変更します。|
 |MikanButton.getText() -> str|MikanButtonのテキストを返します。|
 |MikanButton.Draw() -> undefined|ボタンを描写します。通常、MikanGUI.Drawが呼び出します。|
 |MikanButton.isClicked() -> boolean|マウスカーソルがボタンの上に存在するかどうかを返します。|
-
 |MikanText(x: int / PerStr, y: int / PerStr, text: str, style: {color: CFormatstr}) -> MikanText|MikanTextを生成します。このオブジェクトはテキストを表示するためのオブジェクトです|
 |MikanText.setStyle(style: {color: CFormatstr}) -> undefined|MikanTextのスタイルを変更します。|
 |MikanText.getText() -> str|MikanTextのテキストを返します。|
 |MikanText.Draw() -> undefined|MikanTextを描写します。通常、MikanGUI.Drawが呼び出します。|
-
 |MikanSwitch(x: int / PerStr, y: int / PerStr, dx: int / PerStr, dy: int / PerStr, CallBack: func) -> MikanSwitch|MikanSwitchを生成します。|
 |MikanSwitch.Draw() -> undefined|MikanSwitchを描写します。通常、MikanGUI.Drawが呼び出します。このオブジェクトはON/OFFスイッチとして利用されます|
 |MikanSwitch.isClicked() -> boolean|マウスカーソルがスイッチの上に存在するかどうかを返します。|
 |onClick() -> undefined|通常スイッチが押された時に呼び出されます。on/offを切り替え、インスタンス生成時のCallBackを呼び出します。|
-
 |MikanPanel(x: int / PerStr, y: int / PerStr, dx: int / PerStr, dy: int / PerStr) -> MikanPanel|MikanPanelを生成します。このオブジェクトは簡易的な枠を生成するために利用されます。|
 |MikanPanel.Draw() -> undefined|MikanPanelを描写します。通常、MikanGUI.Drawが呼び出します。|
 
 
 ObjectMove.js - HUD表示に関する機能を提供します
+|class(func).method|機能|
+|----|----|
 |getMikanHUD() -> MikanHUD|HUDinstanceを受け取ります。戻り値はMikanHUDのインスタンスです。このインスタンス上にGraphicオブジェクトを配置します。|
 |MikanHUD.appendObj(obj: MikanGraphics) -> undefined|HUDにオブジェクトを追加します。MikanGraphicsについては以下に続きます。|
 |MikanHUD.setMode(mode: str)|HUDの表示モードを変更します。表示モードについてはMikanGraphicsに関連するため、以下に続きます|
@@ -66,7 +64,6 @@ ObjectMove.js - HUD表示に関する機能を提供します
 |MikanHUD.handleDrag(dx: int, dy: int, mx: int, my: int) -> undefined|modeがmovingであるときに追加されたMikanGraphicsのhandleDrag methodを呼び出します。通常マウス操作時に自動で呼び出されます。|
 |MikanHUD.handleClick(mx: int, my: int) -> undefined|追加されたMikanGraphicsのhandleClick methodを呼び出します。通常マウス操作時に自動で呼び出されます。|
 |MikanHUD.handleRelease(mx: int, my: int) -> undefined|追加されたMikanGraphicsのhandleRelease methodを呼び出します。通常マウス操作時に自動で呼び出されます。|
-
 |getMikanGraphics() -> MikanGraphics|MikanGraphicsを生成します|
 |MikanGraphics(x: int, y: int, width: int, weight: int, DrawFunction: func, DraggedFunction: func) -> MikanGraphics|MikanGraphicsを生成します。DrawFunctionでは描写を、DraggedFunctionにはマウス操作時に操作する内容を記述してください。|
 |MikanGraphics.Draw() -> undefined|MikanGraphicsを描写します。通常、MikanHUD.Drawが呼び出します。|
@@ -78,6 +75,8 @@ ObjectMove.js - HUD表示に関する機能を提供します
 
 
 SettingUI - Modの設定UIを提供します(このオブジェクトは最上位であるため、呼び出しが推奨されないメソッドについては記載しません)
+|class(func).method|機能|
+|----|----|
 |SettingUI() -> SettingUI|SettingUIを生成します。|
 |SettingUI.openGUI() -> undefined|設定UIを開きます。|
 |SettingUI.closeGUI() -> undefined|設定UIを閉じます。|
