@@ -1,0 +1,9 @@
+{
+    "name": "MiGui",
+    "creator": "sleeping-mikan",
+    "description": "",
+    "version": "1.0.0",
+    "entry": "index.js",
+    "requires": [
+    ]
+}
