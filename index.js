@@ -122,6 +122,52 @@ export class MikanText {
     }
 }
 
+export class MikanRectangle {
+    constructor(x, y, dx, dy, style = {
+        color: Renderer.color(0, 0, 0, 255),
+    }) {
+        if (! ((typeof dx === 'string' && typeof dy === 'string') || (typeof dx === 'number' && typeof dy === 'number')) ) Error("dx and dy must be number or string");
+        if (! ((typeof x === 'string' && typeof y === 'string') || (typeof x === 'number' && typeof y === 'number')) ) Error("x and y must be number or string");
+        this.x,this.y;
+        this.xp,this.yp;
+        if (typeof x === "string"){
+            this.xp = x;
+            this.yp = y;
+        }
+        else{
+            this.x = x + Right;
+            this.y = y + Top;
+        }
+        this.dx,this.dy;
+        this.dxp,this.dyp;
+        if (typeof dx === 'string'){
+            this.dxp = dx;
+            this.dyp = dy;
+        }
+        else{
+            this.dx = dx;
+            this.dy = dy;
+        }
+        this.style = style;
+    }
+
+    Draw(WindowSize) {
+        if (typeof this.dxp === 'string'){
+            // this.dx,this.dyは%表記
+            this.dx = (parseFloat(this.dxp) / 100) * WindowSize.width;
+            this.dy = (parseFloat(this.dyp) / 100) * WindowSize.height;
+        }
+        if (typeof this.xp === 'string'){
+            // this.x,this.yは%表記
+            this.x = (parseFloat(this.xp) / 100) * WindowSize.width;
+            this.y = (parseFloat(this.yp) / 100) * WindowSize.height;
+            this.x += WindowSize.x;
+            this.y += WindowSize.y;
+        }
+        Renderer.drawRect(this.style.color, this.x, this.y, this.dx, this.dy);
+    }
+}
+
 export class MikanSwitch {
     
     constructor(x, y, mode, dx = 40, dy = 15, CallBack = (isOn) => {}) {
